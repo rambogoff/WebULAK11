@@ -1,0 +1,163 @@
+{% extends 'home.html' %}
+{% block content %}
+<div class="gj-margin-top-10">
+    <div class="gj-float-left">
+        <form class="display-inline">
+            <input id="txtName" type="text" placeholder=" Sites Name..."
+                   class="gj-textbox-md gj-display-inline-block gj-width-200"/>
+            <input id="txtEvent" type="text" placeholder=" Event..."
+                   class="gj-textbox-md gj-display-inline-block gj-width-200"/>
+            <input id="txtEdate" type="text" placeholder=" Event Date..."
+                   class="gj-textbox-md gj-display-inline-block gj-width-200"/>
+            <button id="btnSearch" type="button" class="gj-button-md">Search</button>
+            <button id="btnClear" type="button" class="gj-button-md">Clear</button>
+        </form>
+    </div>
+    <div class="gj-float-right">
+        <button id="btnAdd" type="button" class="gj-button-md">Add New Record</button>
+    </div>
+</div>
+<div class="gj-clear-both"></div>
+<div class="gj-margin-top-10">
+    <table id="grid">
+        <thead>
+        <tr>
+            <th width="56">ID</th>
+            <th data-sortable="true">Name</th>
+            <th data-field="Event">Event</th>
+            <th data-field="Eventdate">Eventdate</th>
+            <th width="64" data-tmpl="<span class='material-icons gj-cursor-pointer'>edit</span>" align="center"
+                data-events="click: Edit"></th>
+            <th width="64" data-tmpl="<span class='material-icons gj-cursor-pointer'>delete</span>" align="center"
+                data-events="click: Delete"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>1ULAK</td>
+            <td>Hard_Reset</td>
+            <td>asd</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2ULAK</td>
+            <td>Hard_Reset</td>
+            <td>safdsd</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>3ULAK</td>
+            <td>Hard_Reset</td>
+            <td>asfaf</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>4ULAK</td>
+            <td>Hard_Reset</td>
+            <td>afafa</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>5ULAK</td>
+            <td>Hard_Reset</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>6ULAK</td>
+            <td>Hard_Reset</td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="dialog" class="gj-display-none" width="360" data-auto-open="false" data-modal="true">
+    <div data-role="body">
+        <input type="hidden" id="ID"/>
+
+        <div class="">
+            <input type="text" class="gj-textbox-md" id="Name" placeholder="Name...">
+        </div>
+        <div class="gj-margin-top-20">
+            <input type="text" class="gj-textbox-md" id="Event" placeholder="Event..."/>
+        </div>
+         <div class="gj-margin-top-20">
+            <input type="text" class="gj-textbox-md" id="Eventdate" placeholder="Date..."/>
+        </div>
+    </div>
+    <div data-role="footer">
+        <button type="button" id="btnSave" class="gj-button-md">Save</button>
+        <button type="button" id="btnCancel" class="gj-button-md">Cancel</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var grid, dialog;
+
+    function Edit(e) {
+        $('#ID').val(e.data.record.ID);
+        $('#Name').val(e.data.record.Name);
+        $('#Event').val(e.data.record.Event);
+         $('#Eventdate').val(e.data.record.Eventdate);
+        dialog.open('Edit Player');
+    }
+
+    function Delete(e) {
+        if (confirm('Are you sure?')) {
+            grid.removeRow(e.data.id - 1);
+        }
+    }
+
+    function Save() {
+        if ($('#ID').val()) {
+            var id = parseInt($('#ID').val());
+            grid.updateRow(id, {'ID': id, 'Name': $('#Name').val(), 'Event': $('#Event').val(), 'Eventdate': $('#Eventdate').val()});
+        } else {
+            grid.addRow({
+                'ID': grid.count(true) + 1,
+                'Name': $('#Name').val(),
+                'Event': $('#Event').val(),
+                'Date': $('#Eventdate').val()
+            });
+        }
+        dialog.close();
+    }
+
+    $(document).ready(function () {
+        grid = $('#grid').grid({
+            primaryKey: 'ID',
+            pager: {limit: 5}
+        });
+        dialog = $('#dialog').dialog();
+        $('#btnAdd').on('click', function () {
+            $('#ID').val('');
+            $('#Name').val('');
+            $('#Event').val('');
+            $('#Eventdate').val('');
+            dialog.open('Add Player');
+        });
+        $('#btnSave').on('click', Save);
+        $('#btnCancel').on('click', function () {
+            dialog.close();
+        });
+        $('#btnSearch').on('click', function () {
+            grid.reload({Name: $('#txtName').val(), Event: $('#txtEvent').val(), Eventdate: $('#txtEdate').val()});
+        });
+        $('#btnClear').on('click', function () {
+            $('#srcName').val('');
+            $('#srcEvent').val('');
+            $('#srcEdate').val('');
+            grid.reload({Name: '', Event: '', Eventdate: ''});
+        });
+    });
+</script>
+{% endblock %}

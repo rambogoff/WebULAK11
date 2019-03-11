@@ -1,0 +1,45 @@
+{% extends 'home.html' %}
+{% block content %}
+    <div class="grid-form1">
+        <h3><b>Yuk Tanımlaması</b></h3>
+
+        <div class="tab-content">
+
+            <div class="tab-pane active" id="horizontal-form">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="selector1" class="col-sm-2 control-label">Yük </label>
+                        <div class="col-sm-8">
+                            <select name="selector1" id="selector1" class="form-control1">
+                                <option>Aselsan Yük</option>
+                                <option>Argela Yük</option>
+                                <option>Netas Yük</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">Swm Yükünü Giriniz</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control1" id="focusedinput" placeholder="SWM_***">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="txtarea1" class="col-sm-2 control-label">Dipnot</label>
+                        <div class="col-sm-8"><textarea name="txtarea1" id="txtarea1" cols="50" rows="4"
+                                                        class="form-control1"></textarea></div>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <button class="btn-primary btn">Submit</button>
+                                <button class="btn-inverse btn">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+{% endblock %}

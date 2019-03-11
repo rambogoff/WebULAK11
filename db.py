@@ -67,6 +67,16 @@ class DatabaseConnection:
         except:
             return False
 
+
+
+
+
+
+
+
+
+
+
     def create_table(self):
         create_table_command = "Create table alarms (id PRIMARY key serial, name varchar(100), tanım varchar(100))"
         self.cursor.execute(create_table_command)

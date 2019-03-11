@@ -17,9 +17,10 @@
                 <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">İzleme Menüsü <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#" class="dropdown-item"> Saha Ekleme </a></li>
+                    <li><a href="/event" class="dropdown-item">Event</a></li>
                     <li><a href="#" class="dropdown-item">Saatlik Raporlama</a></li>
                     <li><a href="#" class="dropdown-item">Günlük Raporlama</a></li>
-                    <li><a href="#" class="dropdown-item">Görüntüleme</a></li>
+                    <li><a href="/visualization" class="dropdown-item">Görüntüleme</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
@@ -27,6 +28,7 @@
                         class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#" class="dropdown-item"> link </a></li>
+                    <li><a href="/event" class="dropdown-item">Event</a></li>
                     <li><a href="#" class="dropdown-item"> link </a></li>
                     <li><a href="#" class="dropdown-item"> link </a></li>
                     <li><a href="#" class="dropdown-item"> link </a></li>
@@ -70,57 +72,5 @@
             </div>
         </form>
 
-        <ul class="nav navbar-nav navbar-right ml-auto">
-            <li class="nav-item dropdown">
-                <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#"><i class="fa fa-user-o"></i>
-                    Login</a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <form class="form-signin">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="name" name="username" id="username" class="form-control" placeholder="Name"
-                                       required>
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" name="password" id="password" class="form-control"
-                                       placeholder="Password" required>
-                            </div>
-                            <button id="btnSingIn" name="button1id" class="btn btn-success">Login</button>
-                        </form>
-                    </li>
-                </ul>
-                <!-- Register   --->
-                <ul class="nav navbar-nav navbar-right ml-auto">
-                    <li class="nav-item dropdown">
-                        <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#"><i class="fa fa-user-o"></i>
-                            Register</a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <form class="form-signup">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                        <input type="name" name="username" id="username" class="form-control"
-                                               placeholder="Username" required>
-                                    </div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                        <input type="password" name="password" id="password" class="form-control"
-                                               placeholder="Password" required>
-                                    </div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                        <input type="text" name="user_type" id="user_type" class="form-control"
-                                               placeholder="user_type" required>
-                                    </div>
-                                    <button id="btnSingUp" type="button" class="btn btn-success">Register</button>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
     </div>
 </nav>

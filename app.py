@@ -46,6 +46,16 @@ def showSignIn():
     return render_template('signIn.html')
 
 
+@app.route('/visualization')
+def visualization():
+    return render_template('visualization.html')
+
+
+@app.route('/event')
+def event():
+    return render_template('Event.html')
+
+
 @app.route("/signup", methods=['POST'])
 def signup():
     """
@@ -101,6 +111,36 @@ def daydata():
     status = db_obj.day_report(day_date, saha_id, sum_reset_id, swm_did, sum_ue)
     return Response(json.dumps({'success': 'Registered successfully'}), status=201) if status else Response(
         json.dumps({'error': 'Something went wrong'}), status=400)
+
+
+@app.route("/signup2")
+def signup2():
+    return render_template("signin2.html")
+
+
+@app.route("/signin2")
+def signin2():
+    return render_template("signup2.html")
+
+
+@app.route("/open")
+def open():
+    return render_template("open.html")
+
+
+@app.route("/yuk")
+def yuk():
+    return render_template("yuk.html")
+
+
+@app.route("/sahaday")
+def sahaday():
+    return render_template("sahaday.html")
+
+
+@app.route("/help404")
+def help404():
+    return render_template("404.html")
 
 
 @app.route('/')
